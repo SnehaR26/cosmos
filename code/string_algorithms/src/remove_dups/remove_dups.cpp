@@ -6,9 +6,12 @@ void removeDups(std::string &str)
     std::string resStr;
     resStr.push_back(str.front());
     for (std::string::iterator it = str.begin() + 1; it != str.end(); ++it)
+    {
+
         if (*it != resStr.back())
             resStr.push_back(*it);
 
+    }
     std::swap(str, resStr);
 }
 

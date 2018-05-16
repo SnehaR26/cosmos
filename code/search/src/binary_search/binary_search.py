@@ -3,43 +3,42 @@ Part of Cosmos by OpenGenus Foundation
 '''
 
 
-def _binary_search_recursive_impl(arr, x, left, right):
-    if right > left:
-        mid = left + int((right - left) / 2)
+def binarySearchRecursive(arr, l, r, x):
+    if r >= l:
+
+        mid = l + int((r - l) / 2)
 
         if arr[mid] == x:
             return mid
 
         elif arr[mid] > x:
-            return _binary_search_recursive_impl(arr, x, left, mid - 1)
+            return binarySearchRecursive(arr, l, mid - 1, x)
 
         else:
-            return _binary_search_recursive_impl(arr, x, mid + 1, right)
+            return binarySearchRecursive(arr, mid + 1, r, x)
 
     else:
-        return left if left in range(0, len(arr)) and arr[left] == x else -1
+        return -1
 
 
-def binary_search_recursive(arr, x):
-    return _binary_search_recursive_impl(arr, x, 0, len(arr))
-
-
-def _binary_search_interactive_impl(arr, x, left, right):
-    while left < right:
-        mid = left + int((right - left) / 2)
+def binarySearchLoop(arr, l, r, x):
+    while l <= r:
+        mid = l + int((r - l) / 2)
 
         if arr[mid] == x:
             return mid
         elif arr[mid] > x:
-            right = mid - 1
+            r = mid - 1
         else:
-            left = mid + 1
+            l = mid + 1
 
-    return left if left in range(0, len(arr)) and arr[left] == x else -1
-
-
-def binary_search_interactive(arr, x):
-    return _binary_search_interactive_impl(arr, x, 0, len(arr))
+    return -1
 
 
-binary_search = binary_search_interactive
+arr = [1, 2, 3, 5]
+find = 3
+
+print("Position of ", find, " is ", binarySearchLoop(arr, 0, len(arr) - 1,
+                                                     find))
+print("Position of ", find, " is ", binarySearchRecursive(
+    arr, 0, len(arr) - 1, find))

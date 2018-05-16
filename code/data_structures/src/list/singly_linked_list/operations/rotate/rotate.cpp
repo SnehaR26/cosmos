@@ -1,21 +1,17 @@
 /*
  * Part of Cosmos by OpenGenus Foundation
- */
+*/
 
-#include <iostream>
+#include<iostream>
 
 //Definition for singly-linked list.
-struct ListNode
-{
+struct ListNode {
     int val;
     ListNode *next;
-    ListNode(int x) : val(x), next(NULL)
-    {
-    }
+    ListNode(int x) : val(x), next(NULL) {}
 };
-
-ListNode* rotate(ListNode* A, int B)
-{
+ 
+ListNode* rotate(ListNode* A, int B) {
     int t = 0;
     ListNode* temp = A;
     ListNode* prev2 = NULL;
@@ -32,7 +28,7 @@ ListNode* rotate(ListNode* A, int B)
     ListNode* prev = NULL;
     ListNode* head = A;
     temp = A;
-    for (int i = 1; i < p; i++)                     //reaching that point from where the list is to be rotated
+    for (int i=1; i<p; i++)                     //reaching that point from where the list is to be rotated
     {
         prev = temp;
         temp = temp->next;

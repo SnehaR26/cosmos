@@ -21,13 +21,12 @@ bool isLapindrome(string str)
 
 int main()
 {
-    string test_case;
-    cout << "Input the string to be checked" << endl;
-    cin >> test_case;
+    string test_case = "addbbadd";
+ 
     if (isLapindrome(test_case))
-        cout << test_case << "is a lapindrome.\n";
+       cout<<"lapindrome\n";
     else
-        cout << test_case << "is not a lapindrome.\n";
+       cout<<"not a lapindrome\n";
 
     return 0;
 }

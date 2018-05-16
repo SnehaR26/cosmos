@@ -1,13 +1,30 @@
 # Converting prefix to its equivalent postfix notation.
 # Part of Cosmos by OpenGenus Foundation
 postfix = []
+temp = []
 operator = -10
 operand = -20
+leftparentheses = -30
+rightparentheses = -40
 empty = -50
 
+
+def precedence(s):
+    if s is '(':
+        return 0
+    elif s is '+' or '-':
+        return 1
+    elif s is '*' or '/' or '%':
+        return 2
+    else:
+        return 99
+
+
 def typeof(s):
-    if s is '(' or  s is ')':
-        return operator
+    if s is '(':
+        return leftparentheses
+    elif s is ')':
+        return rightparentheses
     elif s is '+' or s is '-' or s is '*' or s is '%' or s is '/':
         return operator
     elif s is ' ':
@@ -16,18 +33,27 @@ def typeof(s):
         return operand
 
 
-prefix = input("Enter the prefix notation : ")
-prefix = prefix[::-1]
-print(prefix)
-for i in prefix:
+infix = input("Enter the infix notation : ")
+for i in infix:
     type = typeof(i)
-    if type is operand:
+    if type is leftparentheses:
+        temp.append(i)
+    elif type is rightparentheses:
+        next = temp.pop()
+        while next is not '(':
+            postfix.append(next)
+            next = temp.pop()
+    elif type is operand:
         postfix.append(i)
     elif type is operator:
-        op_first = postfix.pop()
-        op_second = postfix.pop()
-        postfix.append(op_first + op_second + i)
+        p = precedence(i)
+        while len(temp) is not 0 and p <= precedence(temp[-1]):
+            postfix.append(temp.pop())
+        temp.append(i)
     elif type is empty:
         continue
+
+while len(temp) > 0:
+    postfix.append(temp.pop())
 
 print("It's postfix notation is ", ''.join(postfix))

@@ -8,12 +8,8 @@ using namespace std;
 struct point
 {
     double x, y;
-    point(double x, double y) : x(x), y(y)
-    {
-    }
-    point()
-    {
-    }
+    point(double x, double y) : x(x), y(y) {}
+    point() {}
 };
 
 // custom compare for sorting points
@@ -54,8 +50,7 @@ void convex_hull(vector<point> &points)
         }
         if (i == points.size() - 1 || ccw(p1, points[i], p2))
         {
-            while (down.size() >= 2 &&
-                   !ccw(down[down.size() - 2], down[down.size() - 1], points[i]))
+            while (down.size() >= 2 && !ccw(down[down.size() - 2], down[down.size() - 1], points[i]))
                 down.pop_back();
             down.push_back(points[i]);
         }
@@ -74,7 +69,9 @@ int main()
     cin >> n;
     vector<point> points(n);
     for (int i = 0; i < n; i++)
+    {
         cin >> points[i].x >> points[i].y;
+    }
     convex_hull(points);
     return 0;
 }
