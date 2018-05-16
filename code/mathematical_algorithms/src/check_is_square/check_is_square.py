@@ -17,11 +17,23 @@ def checkIfSquare(n):
 
 	return False
 
+import sys
 
+# determine python version
 version = sys.version_info[0]
-print('Enter a positive number :')
-n = input()
-if(checkIfSquare(n)):
-	print('Yes')
+
+if version == 2:
+	print('Enter a positive number :')
+	n = raw_input()
+	if(checkIfSquare(n)):
+		print('Yes')
+	else:
+		print('No')
+
 else:
-	print('No')
+	print('Enter a positive number :')
+	n = input()
+	if(checkIfSquare(n)):
+		print('Yes')
+	else:
+		print('No')

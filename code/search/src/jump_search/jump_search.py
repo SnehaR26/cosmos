@@ -1,12 +1,7 @@
-'''
-Part of Cosmos by OpenGenus Foundation
-'''
-
-
 import math
 
 
-def jump_search(arr, x):
+def jumpSearch(arr, x):
     n = len(arr)
     jump = int(math.sqrt(n))
     left, right = 0, 0
@@ -28,3 +23,16 @@ def jump_search(arr, x):
         temp += 1
 
     return -1
+
+
+def test(x):
+    arr = [7, 18, 24, 12, 47, 84, 14]
+    index = jumpSearch(arr, x)
+
+    if index != -1:
+        print "The element", x, "is at the index", index
+    else:
+        print "Element", x, "not found!"
+
+
+test(18)

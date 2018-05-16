@@ -98,7 +98,7 @@ Always use C style comments (`/* */`) and not C++ style comments (`//`). A sampl
 
 ```C
 
-/* One line comment */
+/* On line comment */
 
 /*
  * Multiline comment. Fill it out like it were

@@ -1,15 +1,15 @@
 /*
- * Part of Cosmos by OpenGenus Foundation
- *
- * selection sort synopsis
- *
- * template<typename _Input_Iter, typename _Compare>
- * void
- * selectionSort(_Input_Iter begin, _Input_Iter end, _Compare compare);
- *
- * template<typename _Input_Iter>
- * void
- * selectionSort(_Input_Iter begin, _Input_Iter end);
+ Part of Cosmos by OpenGenus Foundation
+
+ selection sort synopsis
+
+template<typename _Input_Iter, typename _Compare>
+void
+selectionSort(_Input_Iter begin, _Input_Iter end, _Compare compare);
+
+template<typename _Input_Iter>
+void
+selectionSort(_Input_Iter begin, _Input_Iter end);
  */
 
 #include <functional>
@@ -19,6 +19,7 @@ void
 selectionSort(_Input_Iter begin, _Input_Iter end, _Compare compare)
 {
     if (begin != end)
+    {
         for (auto curr = begin; curr != end; ++curr)
         {
             auto minimum = curr;
@@ -29,6 +30,7 @@ selectionSort(_Input_Iter begin, _Input_Iter end, _Compare compare)
 
             std::iter_swap(minimum, curr);
         }
+    }
 }
 
 template<typename _Input_Iter>

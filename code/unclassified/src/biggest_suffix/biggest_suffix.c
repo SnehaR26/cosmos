@@ -11,13 +11,13 @@ int equality(char *s1, char *s2, int x)
 char *biggest_suffix(char *s1, char *s2)
 {
 	int i;
-	int shortest_string; /* Finds the number of characters that needs to traversed to check smallest substring */
-	int reminder = 0; /* Keeps count of number of characters that are same in both the strings starting from back */
+	int shortest_string;
+	int reminder = 0;
 
 	if(strlen(s1) > strlen(s2))
-		shortest_string = strlen(s2);
-	else
 		shortest_string = strlen(s1);
+	else
+		shortest_string = strlen(s2);
 
 	for(i = 0; i <= shortest_string; i++)
 	{
@@ -38,9 +38,8 @@ int main(void)
 {
 	char s1[100];
 	char s2[100];
-	printf("Give first string:\n");
+
 	scanf("%s", s1);
-	printf("Give second string:\n");
 	scanf("%s", s2);
 
 	printf("Biggest suffix is: %s\n", biggest_suffix(s1, s2) );

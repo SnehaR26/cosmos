@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+from math import *
+
+
 def jaccard_similarity(x, y):
 
     intersection_cardinality = len(set.intersection(*[set(x), set(y)]))
@@ -7,4 +10,4 @@ def jaccard_similarity(x, y):
     return intersection_cardinality / float(union_cardinality)
 
 
-print(jaccard_similarity([0, 1, 2, 5, 6], [0, 2, 3, 5, 7, 9]))
+print jaccard_similarity([0, 1, 2, 5, 6], [0, 2, 3, 5, 7, 9])
